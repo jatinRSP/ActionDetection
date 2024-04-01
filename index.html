@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebRTC Video Capture</title>
+</head>
+
+<body>
+    <video id="localVideo" autoplay></video>
+    <button onclick="startCapture()">Start Capture</button>
+    <button onclick="stopCapture()">Stop Capture</button>
+
+    <script>
+        let localStream;
+        const localVideo = document.getElementById('localVideo');
+
+        async function startCapture() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                localVideo.srcObject = localStream;
+            } catch (err) {
+                console.error('Error accessing media devices: ', err);
+            }
+        }
+
+        function stopCapture() {
+            if (localStream) {
+                localStream.getTracks().forEach(track => track.stop());
+                localVideo.srcObject = null;
+            }
+        }
+    </script>
+</body>
+
+</html>
