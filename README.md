@@ -1,2 +1,7 @@
 # ActionDetection
-This is my AI project which will detect the action of user and prdict using TENSORFLOW AND KERAS
+
+This repository contains my AI project which recognizes action live from webcam or from a video file.
+
+## Requirements
+
+- Python 3.9.0

@@ -2,7 +2,7 @@
 
 # #tensorflow==2.5.1 
 # tensorflow-gpu==2.5.1 
-# opencv-python 
+# opencv-python==4.9.0.80
 # mediapipe 
 # scikit-learn 
 # matplotlib
