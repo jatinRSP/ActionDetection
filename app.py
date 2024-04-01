@@ -1,13 +1,13 @@
-from flask import Flask, request
+from fastapi import FastAPI
+from pydantic import BaseModel
 
-app = Flask(__name__)
+app = FastAPI()
 
-@app.route('/upload_video', methods=['POST'])
-def upload_video():
-    # Handle video upload here
-    video_data = request.files['video'].read()
-    # Process the video data (e.g., save to disk, analyze, etc.)
-    return 'Video uploaded successfully!'
+class Frame(BaseModel):
+    frameData: str
 
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.post("/upload-frame")
+async def upload_frame(frame: Frame):
+    # Process the frame (save it, perform operations, etc.)
+    # For now, just return success
+    return {"message": "Frame received successfully"}
